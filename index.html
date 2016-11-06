@@ -1,19 +1,37 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stream Fusion, to Completeness</title>
-<link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
-</head>
-<body><div class="container"><h2 id="stream-fusion-to-completeness">Stream Fusion, to Completeness</h2>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Strymonas.GitHub.io by strymonas</title>
 
-<p><strong>strymonas</strong> is a streaming library for OCaml and Scala that offers support for fast, bulk, in-memory processing. It is developed using the state of the art facilities of Multi-Stage Programming (MSP) for each language. The utmost goal of the library is to offer a streaming API that achieves stream fusion at the highest level without altering the compiler backend. It covers the combination of many interesting (and challenging) combinators. The OCaml flavor, depends on <a href="http://okmij.org/ftp/ML/MetaOCaml.html">BER MetaOCaml</a>, OCaml’s dialect for MSP. The Scala one depends on <a href="https://scala-lms.github.io/">scala-lms</a>.</p>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Strymonas.GitHub.io</h1>
+        <p>Stream Fusion, to Completeness</p>
 
-<p>The approach is described in detail in the paper <em>Stream Fusion, to Completeness</em>, that will be presented at the 44th ACM SIGPLAN Symposium on Principles of Programming Languages (<a href="http://conf.researchr.org/home/POPL-2017">POPL’17</a>) in Paris.</p>
 
-<h2 id="getting-started">Getting Started</h2>
+        <p class="view"><a href="https://github.com/strymonas">View My GitHub Profile</a></p>
+
+      </header>
+      <section>
+        <h2>
+<a id="stream-fusion-to-completeness" class="anchor" href="#stream-fusion-to-completeness" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Stream Fusion, to Completeness</h2>
+
+<p><strong>strymonas</strong> is the codename of a streaming library for OCaml and Scala that offers support for fast, bulk, in-memory processing. It is developed using the state of the art facilities of Multi-Stage Programming (MSP) for each language. The utmost goal of the library is to offer a streaming API that achieves stream fusion at the highest level without altering the compiler backend. It covers the combination of many interesting (and challenging) combinators. The OCaml flavor, depends on <a href="http://okmij.org/ftp/ML/MetaOCaml.html">BER MetaOCaml</a>, OCaml's dialect for MSP. The Scala one depends on <a href="https://scala-lms.github.io/">scala-lms</a>.</p>
+
+<p>The approach is described in detail in the paper <em>Stream Fusion, to Completeness</em>, that will be presented at the 44th ACM SIGPLAN Symposium on Principles of Programming Languages (<a href="http://conf.researchr.org/home/POPL-2017">POPL'17</a>) in Paris.</p>
+
+<h2>
+<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Getting Started</h2>
 
 <p>The project is organized in three separate projects.</p>
 
@@ -23,147 +41,140 @@
 <li>Java (<code>/benchmarks</code>) (clone <a href="https://github.com/strymonas/java8-benchmarks">java8-benchmarks</a>)</li>
 </ol>
 
-
-
-<h3 id="prerequisites">Prerequisites</h3>
+<h3>
+<a id="prerequisites" class="anchor" href="#prerequisites" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Prerequisites</h3>
 
 <p>To run each one of the three benchmark and test suites, please install the following:</p>
 
 <ol>
-<li>Java 8 (JVM version of at least 1.8.0 65): from your system’s package manager</li>
+<li>Java 8 (JVM version of at least 1.8.0 65): from your system's package manager</li>
 <li>Install <code>maven</code> the Apache build manager for Java projects</li>
-<li>OCaml: from your system’s package manager</li>
-<li>OPAM: after you <a href="https://opam.ocaml.org/doc/Install.html">install</a> OPAM you will need to initialize it  with <code>opam init</code> and resolve any dependencies with: <br>
-<ul><li>either the <code>opam depext</code> command</li>
-<li>or your system’s package manager (e.g., OML’s dependencies)</li></ul></li>
-<li>sbt: install following <a href="http://www.scala-sbt.org/0.13/docs/Setup.html">sbt’s documentation</a></li>
+<li>OCaml: from your system's package manager</li>
+<li>OPAM: after you <a href="https://opam.ocaml.org/doc/Install.html">install</a> OPAM you will need to initialize it  with <code>opam init</code> and resolve any dependencies with:
+
+<ul>
+<li>either the <code>opam depext</code> command</li>
+<li>or your system's package manager (e.g., OML's dependencies)</li>
+</ul>
+</li>
+<li>sbt: install following <a href="http://www.scala-sbt.org/0.13/docs/Setup.html">sbt's documentation</a>
+</li>
 </ol>
 
+<h3>
+<a id="how-to-compile-and-run-the-benchmarks" class="anchor" href="#how-to-compile-and-run-the-benchmarks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to compile and run the benchmarks</h3>
 
-
-<h3 id="how-to-compile-and-run-the-benchmarks">How to compile and run the benchmarks</h3>
-
-
-
-<h4 id="metaocaml">MetaOCaml</h4>
+<h4>
+<a id="metaocaml" class="anchor" href="#metaocaml" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>MetaOCaml</h4>
 
 <p>The following will enable MetaOCaml, install dependencies, make the project and run unit tests.</p>
 
-
-
-<pre class="prettyprint"><code class="language-bash hljs ">$ opam update
-$ opam switch <span class="hljs-number">4.02</span>.<span class="hljs-number">1</span>+BER
-$ <span class="hljs-built_in">eval</span> <span class="hljs-string">"opam config env"</span>
-$ <span class="hljs-built_in">cd</span> staging-streams.ocaml
-$ opam install oasis batteries.<span class="hljs-number">2.3</span>.<span class="hljs-number">0</span> ounit.<span class="hljs-number">2.0</span>.<span class="hljs-number">0</span> oml.<span class="hljs-number">0.0</span>.<span class="hljs-number">5</span>
+<div class="highlight highlight-source-shell"><pre>$ opam update
+$ opam switch 4.02.1+BER
+$ <span class="pl-c1">eval</span> <span class="pl-s"><span class="pl-pds">"</span>opam config env<span class="pl-pds">"</span></span>
+$ <span class="pl-c1">cd</span> staging-streams.ocaml
+$ opam install oasis batteries.2.3.0 ounit.2.0.0 oml.0.0.5
 $ ./configure --enable-tests --enable-benchmarks
-$ make all</code></pre>
+$ make all</pre></div>
 
 <p>To run the benchmarks via command line use the commands below:</p>
 
+<div class="highlight highlight-source-shell"><pre>$ ./benchmark_batteries.byte
+$ ./benchmark_stream.byte</pre></div>
 
-
-<pre class="prettyprint"><code class="language-bash hljs ">$ ./benchmark_batteries.byte
-$ ./benchmark_stream.byte</code></pre>
-
-
-
-<h4 id="lms">LMS</h4>
+<h4>
+<a id="lms" class="anchor" href="#lms" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>LMS</h4>
 
 <p>The following will fire-up the sbt console, compile and run the test suite.</p>
 
-
-
-<pre class="prettyprint"><code class="language-bash hljs ">$ <span class="hljs-built_in">cd</span> staging-streams.scala
+<div class="highlight highlight-source-shell"><pre>$ <span class="pl-c1">cd</span> staging-streams.scala
 $ sbt
-$ test <span class="hljs-comment"># to run the property tests or</span>
-$ testOnly &lt;name of test&gt; <span class="hljs-comment"># to run the property tests (tab completion works)</span></code></pre>
+$ <span class="pl-c1">test</span> <span class="pl-c"># to run the property tests or</span>
+$ testOnly <span class="pl-k">&lt;</span>name of <span class="pl-c1">test</span><span class="pl-k">&gt;</span> <span class="pl-c"># to run the property tests (tab completion works)</span></pre></div>
 
 <p>To run the benchmarks via the sbt command line:</p>
 
-
-
-<pre class="prettyprint"><code class="language-bash hljs ">$ <span class="hljs-built_in">cd</span> staging-streams.scala
+<div class="highlight highlight-source-shell"><pre>$ <span class="pl-c1">cd</span> staging-streams.scala
 $ sbt
-$ jmh:run -i <span class="hljs-number">10</span> -wi <span class="hljs-number">10</span> <span class="hljs-operator">-f</span>1 .* <span class="hljs-comment"># to run all benchmarks</span></code></pre>
+$ jmh:run -i 10 -wi 10 -f1 .<span class="pl-k">*</span> <span class="pl-c"># to run all benchmarks</span></pre></div>
 
-
-
-<h4 id="java-8">Java 8</h4>
+<h4>
+<a id="java-8" class="anchor" href="#java-8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Java 8</h4>
 
 <p>To run the benchmarks via command line:</p>
 
-
-
-<pre class="prettyprint"><code class="language-bash hljs ">$ <span class="hljs-built_in">cd</span> java8-benchmarks
+<div class="highlight highlight-source-shell"><pre>$ <span class="pl-c1">cd</span> java8-benchmarks
 $ mvn clean install
-$ java -Xms6g -Xmx6g -XX:-TieredCompilation -jar target/benchmarks.jar -i <span class="hljs-number">10</span> -wi <span class="hljs-number">10</span> <span class="hljs-operator">-f</span>1 .* <span class="hljs-comment"># to run all benchmarks</span></code></pre>
+$ java -Xms6g -Xmx6g -XX:-TieredCompilation -jar target/benchmarks.jar -i 10 -wi 10 -f1 .<span class="pl-k">*</span> <span class="pl-c"># to run all benchmarks</span></pre></div>
 
-
-
-<h2 id="hello-world">Hello World</h2>
+<h2>
+<a id="hello-world" class="anchor" href="#hello-world" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Hello World</h2>
 
 <p>Developers can use our library as any other streaming/collection library. We assume the reader is familiar with: i) streaming APIs and ii) Multi-Stage Programming.</p>
 
-<p>Firstly, the API is similar with F#’s <code>Seq</code> type, Java 8’s <code>Stream</code> API, collection APIs from OCaml and OCaml Batteries and many more. Our library supports all the core combinators for pipeline construction. Creation of streams is realized with <code>of_arr</code> (from arrays) and <code>unfold</code> (for infinite streams). We support: <code>fold</code>, <code>map</code>, <code>filter</code>, <code>take</code>, <code>flat_map</code> and <code>zip_with</code>.</p>
+<p>Firstly, the API is similar with F#'s <code>Seq</code> type, Java 8's <code>Stream</code> API, collection APIs from OCaml and OCaml Batteries and many more. Our library supports all the core combinators for pipeline construction. Creation of streams is realized with <code>of_arr</code> (from arrays) and <code>unfold</code> (for infinite streams). We support: <code>fold</code>, <code>map</code>, <code>filter</code>, <code>take</code>, <code>flat_map</code> and <code>zip_with</code>.</p>
 
 <p>Secondly, Multi-Stage Programming (MSP) is the core technique that this library follows. MSP is a meta-programming technique that allows a disciplined and safe form of run-time code generation. Staging, refers to the distinction of stages between compile- and run-time with more stages in-between. When more information about run-time values is available, staging can make a program profit in performance, by partially evaluating.</p>
 
 <p>In staged-streams, this kind of (dynamic) information consists of the structure of the pipeline, the in-between combinators and the bodies of the lambdas used.</p>
 
-<p>We prompt the user to read about MSP in the paper <a href="https://www.cs.rice.edu/~taha/publications/journal/dspg04a.pdf">A Gentle Introduction to Multi-stage Programming</a>, on <a href="http://okmij.org/ftp/ML/MetaOCaml.html">BER MetaOCaml</a> and on <a href="https://scala-lms.github.io//index.html">Scala-Lightweight Modular Staging (LMS)</a> which we use for our Scala implementation. The details of our technique and the benefits on the high level of stream fusion that is achieved, are included in the POPL17 paper.</p>
+<p>We prompt the user to read about MSP in the paper <a href="https://www.cs.rice.edu/%7Etaha/publications/journal/dspg04a.pdf">A Gentle Introduction to Multi-stage Programming</a>, on <a href="http://okmij.org/ftp/ML/MetaOCaml.html">BER MetaOCaml</a> and on <a href="https://scala-lms.github.io//index.html">Scala-Lightweight Modular Staging (LMS)</a> which we use for our Scala implementation. The details of our technique and the benefits on the high level of stream fusion that is achieved, are included in the POPL17 paper.</p>
 
+<h3>
+<a id="hello-world-in-ocaml" class="anchor" href="#hello-world-in-ocaml" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Hello World in OCaml!</h3>
 
+<p>In the following example we create a simple stream from an array of six elements in OCaml using MetaOCaml's staging annotations.</p>
 
-<h3 id="hello-world-in-ocaml">Hello World in OCaml!</h3>
+<div class="highlight highlight-source-ocaml"><pre><span class="pl-k">open</span> <span class="pl-c1">Stream_combinators</span>
 
-<p>In the following example we create a simple stream from an array of six elements in OCaml using MetaOCaml’s staging annotations.</p>
+<span class="pl-k">let</span> example <span class="pl-k">=</span>
+    of_arr .<span class="pl-k">&lt;</span>[| <span class="pl-c1">0</span>;<span class="pl-c1">1</span>;<span class="pl-c1">2</span>;<span class="pl-c1">3</span> |]<span class="pl-k">&gt;</span>.
+      <span class="pl-k">|&gt;</span> filter (<span class="pl-k">fun</span> <span class="pl-v">x</span>   -&gt; .<span class="pl-k">&lt;</span>.<span class="pl-ent">~x</span> <span class="pl-k">mod</span> <span class="pl-c1">2</span> <span class="pl-k">=</span> <span class="pl-c1">0</span><span class="pl-k">&gt;</span>.)
+      <span class="pl-k">|&gt;</span> fold   (<span class="pl-k">fun</span> <span class="pl-v">z</span> <span class="pl-v">a</span> -&gt; .<span class="pl-k">&lt;</span>.<span class="pl-ent">~a</span> :: .<span class="pl-ent">~z</span><span class="pl-k">&gt;</span>.) .<span class="pl-k">&lt;</span><span class="pl-c1">[]</span><span class="pl-k">&gt;</span>.
 
-
-
-<pre class="prettyprint"><code class="language-ocaml hljs "><span class="hljs-keyword">open</span> Stream_combinators
-
-<span class="hljs-keyword">let</span> example =
-    of_arr .&lt;[| <span class="hljs-number">0</span>;<span class="hljs-number">1</span>;<span class="hljs-number">2</span>;<span class="hljs-number">3</span> |]&gt;.
-      |&gt; filter (<span class="hljs-keyword">fun</span> x   -&gt; .&lt;.~x <span class="hljs-keyword">mod</span> <span class="hljs-number">2</span> = <span class="hljs-number">0</span>&gt;.)
-      |&gt; fold   (<span class="hljs-keyword">fun</span> z a -&gt; .&lt;.~a :: .~z&gt;.) .&lt;[]&gt;.
-
-Runcode.run example;;</code></pre>
+<span class="pl-c1">Runcode.</span>run example;;</pre></div>
 
 <p>When the execution reaches the <code>run</code> method, an optimized version of the stream will be compiled (emitted) and executed (for optimal results, native code compilation must be used using <code>ocamlopt</code>). The resulted code will consist of a tight, for-loop.</p>
 
-
-
-<h3 id="hello-world-in-scala">Hello World in Scala!</h3>
+<h3>
+<a id="hello-world-in-scala" class="anchor" href="#hello-world-in-scala" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Hello World in Scala!</h3>
 
 <p>With Scala LMS, the same example is demonstrated in the snippet below.</p>
 
+<div class="highlight highlight-source-scala"><pre><span class="pl-k">def</span> <span class="pl-en">example</span> (<span class="pl-v">xs</span> : <span class="pl-en">Rep</span>[<span class="pl-en">Array</span>[<span class="pl-k">Int</span>]]) <span class="pl-k">:</span> <span class="pl-en">Rep</span>[<span class="pl-k">Int</span>] <span class="pl-k">=</span> <span class="pl-en">Stream</span>[<span class="pl-k">Int</span>](xs)
+      .filter(d <span class="pl-k">=&gt;</span> d <span class="pl-k">%</span> <span class="pl-c1">2</span> <span class="pl-k">==</span> <span class="pl-c1">0</span>)
+      .fold(<span class="pl-c1">0</span>, ((<span class="pl-v">a</span> : <span class="pl-en">Rep</span>[<span class="pl-k">Int</span>]) <span class="pl-k">=&gt;</span> (<span class="pl-v">b</span> : <span class="pl-en">Rep</span>[<span class="pl-k">Int</span>]) <span class="pl-k">=&gt;</span> a <span class="pl-k">+</span> b))
 
+<span class="pl-k">val</span> <span class="pl-en">example_s</span> <span class="pl-k">=</span> compile(example)
 
-<pre class="prettyprint"><code class="language-scala hljs "><span class="hljs-keyword">def</span> example (xs : Rep[Array[Int]]) : Rep[Int] = Stream[Int](xs)
-      .filter(d =&gt; d % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>)
-      .fold(<span class="hljs-number">0</span>, ((a : Rep[Int]) =&gt; (b : Rep[Int]) =&gt; a + b))
-
-<span class="hljs-keyword">val</span> example_s = compile(example)
-
-example_s(Array(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>))</code></pre>
+example_s(<span class="pl-en">Array</span>(<span class="pl-c1">0</span>, <span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>))</pre></div>
 
 <p>For more examples see the unit directories with the unit tests for <a href="https://github.com/strymonas/staged-streams.ocaml/test/?at=master">OCaml</a> and <a href="https://github.com/strymonas/staged-streams.scala/src/test/scala/StagedStreamSpec.scala?at=master&amp;fileviewer=file-view-default">Scala</a>.</p>
 
-
-
-<h2 id="bugs-and-feedback">Bugs and Feedback</h2>
+<h2>
+<a id="bugs-and-feedback" class="anchor" href="#bugs-and-feedback" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Bugs and Feedback</h2>
 
 <p>To discuss bugs, improvements and post questions please use our Github Issues.</p>
 
-
-
-<h2 id="team">Team</h2>
+<h2>
+<a id="team" class="anchor" href="#team" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Team</h2>
 
 <ul>
-<li>Oleg Kiselyov, <a href="http://okmij.org/">site</a></li>
-<li>Aggelos Biboudis, <a href="https://twitter.com/biboudis">@biboudis</a>, <a href="https://biboudis.github.io/">site</a></li>
-<li>Nick Palladinos, <a href="https://twitter.com/nickpalladinos">@nickpalladinos</a></li>
-<li>Yannis Smaragdakis, <a href="https://yanniss.github.io/">site</a></li>
-</ul></div></body>
+<li>Oleg Kiselyov, <a href="http://okmij.org/">site</a>
+</li>
+<li>Aggelos Biboudis, <a href="https://twitter.com/biboudis">@biboudis</a>, <a href="https://biboudis.github.io/">site</a>
+</li>
+<li>Nick Palladinos, <a href="https://twitter.com/nickpalladinos">@nickpalladinos</a>
+</li>
+<li>Yannis Smaragdakis, <a href="https://yanniss.github.io/">site</a>
+</li>
+</ul>
+      </section>
+      <footer>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
 </html>
