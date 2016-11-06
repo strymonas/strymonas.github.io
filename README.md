@@ -1,6 +1,6 @@
 ## Stream Fusion, to Completeness
 
-__strymonas__ is the codename of streaming library for OCaml and Scala that offers support for fast, bulk, in-memory processing. It is developed using the state of the art facilities of Multi-Stage Programming (MSP) for each language. The utmost goal of the library is to offer a streaming API that achieves stream fusion at the highest level, covering the combination of many interesting (and challenging) combinators. The OCaml flavor, depends on [BER MetaOCaml](http://okmij.org/ftp/ML/MetaOCaml.html), OCaml's dialect for MSP. The Scala one depends on [scala-lms](https://scala-lms.github.io/).
+__strymonas__ is the codename of a streaming library for OCaml and Scala that offers support for fast, bulk, in-memory processing. It is developed using the state of the art facilities of Multi-Stage Programming (MSP) for each language. The utmost goal of the library is to offer a streaming API that achieves stream fusion at the highest level without altering the compiler backend. It covers the combination of many interesting (and challenging) combinators. The OCaml flavor, depends on [BER MetaOCaml](http://okmij.org/ftp/ML/MetaOCaml.html), OCaml's dialect for MSP. The Scala one depends on [scala-lms](https://scala-lms.github.io/).
 
 The approach is described in detail in the paper _Stream Fusion, to Completeness_, that will be presented at the 44th ACM SIGPLAN Symposium on Principles of Programming Languages ([POPL'17](http://conf.researchr.org/home/POPL-2017)) in Paris.
 
