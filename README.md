@@ -42,13 +42,6 @@ $ ./configure --enable-tests --enable-benchmarks
 $ make all
 ```
 
-**Note for OCaml benchmarks on vm execution:**
-Recently a regression was introduced in the dependency resolution of requirements between oUnit (for unit tests), OML (numerical library for benchmark measurements) and Batteries (on the VM provided). As a result at step **6** in the MetaOCaml case we have to leave unit-tests out, by running only:
-
-```bash
-$ ./configure --disable-tests --enable-benchmarks
-```
-
 To run the benchmarks via command line use the commands below:
 
 ```bash
@@ -82,8 +75,6 @@ $ cd java8-benchmarks
 $ mvn clean install
 $ java -Xms6g -Xmx6g -XX:-TieredCompilation -jar target/benchmarks.jar -i 10 -wi 10 -f1 .* # to run all benchmarks
 ```
-
-**Note for Scala and Java benchmarks on vm execution:** Provide a large memory size (at least 6 GB is reserved in benchmarks, to avoid heap resizing costs during execution).
 
 ## Hello World
 
