@@ -130,4 +130,4 @@ To discuss bugs, improvements and post questions please use our Github Issues.
 - Oleg Kiselyov, [site](http://okmij.org/)
 - Aggelos Biboudis, [@biboudis](https://twitter.com/biboudis), [site](https://biboudis.github.io/)
 - Nick Palladinos, [@nickpalladinos](https://twitter.com/nickpalladinos)
-- Yannis Smaragdakis [site](https://yanniss.github.io/)
+- Yannis Smaragdakis, [site](https://yanniss.github.io/)
