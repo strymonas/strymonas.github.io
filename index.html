@@ -10,13 +10,20 @@
 .container {
     width: 60%;
 }
+    
+.clearfix{
+    clear:both
+}
 </style>
 </head>
 <body>
     
     <div class="container">
         <h2 id="stream-fusion-to-completeness" style="float:left">Stream Fusion, to Completeness</h2> 
-        <img src="aec-badge-popl.png" style="width:100px;transform: rotate(20deg);"/>   
+        <img src="aec-badge-popl.png" style="width:100px;transform: rotate(20deg);float:left;"/>   
+        
+        <div class="clearfix"></div>
+
         
         <p><strong>strymonas</strong> is a streaming library for OCaml and Scala that offers support for fast, bulk, in-memory processing. It is developed using the state of the art facilities of Multi-Stage Programming (MSP) for each language. The utmost goal of the library is to offer a streaming API that achieves stream fusion at the highest level without altering the compiler backend. It covers the combination of many interesting (and challenging) combinators. The OCaml flavor, depends on <a href="http://okmij.org/ftp/ML/MetaOCaml.html">BER MetaOCaml</a>, OCaml’s dialect for MSP. The Scala one depends on <a href="https://scala-lms.github.io/">scala-lms</a>.</p>
 
