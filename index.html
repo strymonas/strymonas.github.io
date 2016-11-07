@@ -18,166 +18,166 @@
 </head>
 <body>
     
-    <div class="container">
-        <h2 id="stream-fusion-to-completeness" style="display:inline-block;">Stream Fusion, to Completeness</h2> 
-        <img src="aec-badge-popl.png" style="width: 60px;transform: rotate(40deg);display: inline-block;margin-left: 15px;margin-bottom: 10px;"/>   
-        
-        <div class="clearfix"></div>
+<div class="container">
+<h2 id="stream-fusion-to-completeness" style="display:inline-block;">Stream Fusion, to Completeness</h2> 
+<img src="aec-badge-popl.png" style="width: 60px;transform: rotate(40deg);display: inline-block;margin-left: 15px;margin-bottom: 10px;"/>   
 
-        
-        <p><strong>strymonas</strong> is a streaming library for OCaml and Scala that offers support for fast, bulk, in-memory processing. It is developed using the state of the art facilities of Multi-Stage Programming (MSP) for each language. The utmost goal of the library is to offer a streaming API that achieves stream fusion at the highest level without altering the compiler backend. It covers the combination of many interesting (and challenging) combinators. The OCaml flavor, depends on <a href="http://okmij.org/ftp/ML/MetaOCaml.html">BER MetaOCaml</a>, OCaml’s dialect for MSP. The Scala one depends on <a href="https://scala-lms.github.io/">scala-lms</a>.</p>
+<div class="clearfix"></div>
 
-        <p>The approach is described in detail in the paper <em>Stream Fusion, to Completeness</em>, that will be presented at the 44th ACM SIGPLAN Symposium on Principles of Programming Languages (<a href="http://conf.researchr.org/home/POPL-2017">POPL’17</a>) in Paris.</p>
 
-        <h2 id="getting-started">Getting Started</h2>
+<p><strong>strymonas</strong> is a streaming library for OCaml and Scala that offers support for fast, bulk, in-memory processing. It is developed using the state of the art facilities of Multi-Stage Programming (MSP) for each language. The utmost goal of the library is to offer a streaming API that achieves stream fusion at the highest level without altering the compiler backend. It covers the combination of many interesting (and challenging) combinators. The OCaml flavor, depends on <a href="http://okmij.org/ftp/ML/MetaOCaml.html">BER MetaOCaml</a>, OCaml’s dialect for MSP. The Scala one depends on <a href="https://scala-lms.github.io/">scala-lms</a>.</p>
 
-        <p>The project consists of three separate projects that you can clone separately: </p>
+<p>The approach is described in detail in the paper <em>Stream Fusion, to Completeness</em>, that will be presented at the 44th ACM SIGPLAN Symposium on Principles of Programming Languages (<a href="http://conf.researchr.org/home/POPL-2017">POPL’17</a>) in Paris.</p>
 
-        <ol>
-        <li><pre class="prettyprint"><code class="language-bash hljs ">git clone https://github.com/strymonas/staged-streams.ocaml</code></pre></li>
-        <li><pre class="prettyprint"><code class="language-bash hljs ">git clone https://github.com/strymonas/staged-streams.scala</code></pre></li>
-        <li><pre class="prettyprint"><code class="language-bash hljs ">git clone https://github.com/strymonas/java8-benchmarks</code></pre></li>
-        </ol>
+<h2 id="getting-started">Getting Started</h2>
 
-        <h3 id="prerequisites">Prerequisites</h3>
+<p>The project consists of three separate projects that you can clone separately: </p>
 
-        <p>To run each one of the three benchmark and test suites, please install the following:</p>
+<ol>
+<li><pre class="prettyprint"><code class="language-bash hljs ">git clone https://github.com/strymonas/staged-streams.ocaml</code></pre></li>
+<li><pre class="prettyprint"><code class="language-bash hljs ">git clone https://github.com/strymonas/staged-streams.scala</code></pre></li>
+<li><pre class="prettyprint"><code class="language-bash hljs ">git clone https://github.com/strymonas/java8-benchmarks</code></pre></li>
+</ol>
 
-        <ol>
-        <li>Java 8 (JVM version of at least 1.8.0 65): from your system’s package manager</li>
-        <li>Install <code>maven</code> the Apache build manager for Java projects</li>
-        <li>OCaml: from your system’s package manager</li>
-        <li>OPAM: after you <a href="https://opam.ocaml.org/doc/Install.html">install</a> OPAM you will need to initialize it  with <code>opam init</code> and resolve any dependencies with: <br>
-        <ul><li>either the <code>opam depext</code> command</li>
-        <li>or your system’s package manager (e.g., OML’s dependencies)</li></ul></li>
-        <li>sbt: install following <a href="http://www.scala-sbt.org/0.13/docs/Setup.html">sbt’s documentation</a></li>
-        </ol>
+<h3 id="prerequisites">Prerequisites</h3>
 
+<p>To run each one of the three benchmark and test suites, please install the following:</p>
 
+<ol>
+<li>Java 8 (JVM version of at least 1.8.0 65): from your system’s package manager</li>
+<li>Install <code>maven</code> the Apache build manager for Java projects</li>
+<li>OCaml: from your system’s package manager</li>
+<li>OPAM: after you <a href="https://opam.ocaml.org/doc/Install.html">install</a> OPAM you will need to initialize it  with <code>opam init</code> and resolve any dependencies with: <br>
+<ul><li>either the <code>opam depext</code> command</li>
+<li>or your system’s package manager (e.g., OML’s dependencies)</li></ul></li>
+<li>sbt: install following <a href="http://www.scala-sbt.org/0.13/docs/Setup.html">sbt’s documentation</a></li>
+</ol>
 
-        <h3 id="how-to-compile-and-run-the-benchmarks">How to compile and run the benchmarks</h3>
 
 
+<h3 id="how-to-compile-and-run-the-benchmarks">How to compile and run the benchmarks</h3>
 
-        <h4 id="metaocaml">MetaOCaml</h4>
 
-        <p>The following will enable MetaOCaml, install dependencies, make the project and run unit tests.</p>
 
+<h4 id="metaocaml">MetaOCaml</h4>
 
+<p>The following will enable MetaOCaml, install dependencies, make the project and run unit tests.</p>
 
-        <pre class="prettyprint"><code class="language-bash hljs ">$ opam update
-        $ opam switch <span class="hljs-number">4.02</span>.<span class="hljs-number">1</span>+BER
-        $ <span class="hljs-built_in">eval</span> <span class="hljs-string">"opam config env"</span>
-        $ <span class="hljs-built_in">cd</span> staging-streams.ocaml
-        $ opam install oasis batteries.<span class="hljs-number">2.3</span>.<span class="hljs-number">0</span> ounit.<span class="hljs-number">2.0</span>.<span class="hljs-number">0</span> oml.<span class="hljs-number">0.0</span>.<span class="hljs-number">5</span>
-        $ ./configure --enable-tests --enable-benchmarks
-        $ make all</code></pre>
 
-        <p>To run the benchmarks via command line use the commands below:</p>
 
+<pre class="prettyprint"><code class="language-bash hljs ">$ opam update
+$ opam switch <span class="hljs-number">4.02</span>.<span class="hljs-number">1</span>+BER
+$ <span class="hljs-built_in">eval</span> <span class="hljs-string">"opam config env"</span>
+$ <span class="hljs-built_in">cd</span> staging-streams.ocaml
+$ opam install oasis batteries.<span class="hljs-number">2.3</span>.<span class="hljs-number">0</span> ounit.<span class="hljs-number">2.0</span>.<span class="hljs-number">0</span> oml.<span class="hljs-number">0.0</span>.<span class="hljs-number">5</span>
+$ ./configure --enable-tests --enable-benchmarks
+$ make all</code></pre>
 
+<p>To run the benchmarks via command line use the commands below:</p>
 
-        <pre class="prettyprint"><code class="language-bash hljs ">$ ./benchmark_batteries.byte
-        $ ./benchmark_stream.byte</code></pre>
 
 
+<pre class="prettyprint"><code class="language-bash hljs ">$ ./benchmark_batteries.byte
+$ ./benchmark_stream.byte</code></pre>
 
-        <h4 id="lms">LMS</h4>
 
-        <p>The following will fire-up the sbt console, compile and run the test suite.</p>
 
+<h4 id="lms">LMS</h4>
 
+<p>The following will fire-up the sbt console, compile and run the test suite.</p>
 
-        <pre class="prettyprint"><code class="language-bash hljs ">$ <span class="hljs-built_in">cd</span> staging-streams.scala
-        $ sbt
-        $ test <span class="hljs-comment"># to run the property tests or</span>
-        $ testOnly &lt;name of test&gt; <span class="hljs-comment"># to run the property tests (tab completion works)</span></code></pre>
 
-        <p>To run the benchmarks via the sbt command line:</p>
 
+<pre class="prettyprint"><code class="language-bash hljs ">$ <span class="hljs-built_in">cd</span> staging-streams.scala
+$ sbt
+$ test <span class="hljs-comment"># to run the property tests or</span>
+$ testOnly &lt;name of test&gt; <span class="hljs-comment"># to run the property tests (tab completion works)</span></code></pre>
 
+<p>To run the benchmarks via the sbt command line:</p>
 
-        <pre class="prettyprint"><code class="language-bash hljs ">$ <span class="hljs-built_in">cd</span> staging-streams.scala
-        $ sbt
-        $ jmh:run -i <span class="hljs-number">10</span> -wi <span class="hljs-number">10</span> <span class="hljs-operator">-f</span>1 .* <span class="hljs-comment"># to run all benchmarks</span></code></pre>
 
 
+<pre class="prettyprint"><code class="language-bash hljs ">$ <span class="hljs-built_in">cd</span> staging-streams.scala
+$ sbt
+$ jmh:run -i <span class="hljs-number">10</span> -wi <span class="hljs-number">10</span> <span class="hljs-operator">-f</span>1 .* <span class="hljs-comment"># to run all benchmarks</span></code></pre>
 
-        <h4 id="java-8">Java 8</h4>
 
-        <p>To run the benchmarks via command line:</p>
 
+<h4 id="java-8">Java 8</h4>
 
+<p>To run the benchmarks via command line:</p>
 
-        <pre class="prettyprint"><code class="language-bash hljs ">$ <span class="hljs-built_in">cd</span> java8-benchmarks
-        $ mvn clean install
-        $ java -Xms6g -Xmx6g -XX:-TieredCompilation -jar target/benchmarks.jar -i <span class="hljs-number">10</span> -wi <span class="hljs-number">10</span> <span class="hljs-operator">-f</span>1 .* <span class="hljs-comment"># to run all benchmarks</span></code></pre>
 
 
+<pre class="prettyprint"><code class="language-bash hljs ">$ <span class="hljs-built_in">cd</span> java8-benchmarks
+$ mvn clean install
+$ java -Xms6g -Xmx6g -XX:-TieredCompilation -jar target/benchmarks.jar -i <span class="hljs-number">10</span> -wi <span class="hljs-number">10</span> <span class="hljs-operator">-f</span>1 .* <span class="hljs-comment"># to run all benchmarks</span></code></pre>
 
-        <h2 id="hello-world">Hello World</h2>
 
-        <p>Developers can use our library as any other streaming/collection library. We assume the reader is familiar with: i) streaming APIs and ii) Multi-Stage Programming.</p>
 
-        <p>Firstly, the API is similar with F#’s <code>Seq</code> type, Java 8’s <code>Stream</code> API, collection APIs from OCaml and OCaml Batteries and many more. Our library supports all the core combinators for pipeline construction. Creation of streams is realized with <code>of_arr</code> (from arrays) and <code>unfold</code> (for infinite streams). We support: <code>fold</code>, <code>map</code>, <code>filter</code>, <code>take</code>, <code>flat_map</code> and <code>zip_with</code>.</p>
+<h2 id="hello-world">Hello World</h2>
 
-        <p>Secondly, Multi-Stage Programming (MSP) is the core technique that this library follows. MSP is a meta-programming technique that allows a disciplined and safe form of run-time code generation. Staging, refers to the distinction of stages between compile- and run-time with more stages in-between. When more information about run-time values is available, staging can make a program profit in performance, by partially evaluating.</p>
+<p>Developers can use our library as any other streaming/collection library. We assume the reader is familiar with: i) streaming APIs and ii) Multi-Stage Programming.</p>
 
-        <p>In staged-streams, this kind of (dynamic) information consists of the structure of the pipeline, the in-between combinators and the bodies of the lambdas used.</p>
+<p>Firstly, the API is similar with F#’s <code>Seq</code> type, Java 8’s <code>Stream</code> API, collection APIs from OCaml and OCaml Batteries and many more. Our library supports all the core combinators for pipeline construction. Creation of streams is realized with <code>of_arr</code> (from arrays) and <code>unfold</code> (for infinite streams). We support: <code>fold</code>, <code>map</code>, <code>filter</code>, <code>take</code>, <code>flat_map</code> and <code>zip_with</code>.</p>
 
-        <p>We prompt the user to read about MSP in the paper <a href="https://www.cs.rice.edu/~taha/publications/journal/dspg04a.pdf">A Gentle Introduction to Multi-stage Programming</a>, on <a href="http://okmij.org/ftp/ML/MetaOCaml.html">BER MetaOCaml</a> and on <a href="https://scala-lms.github.io//index.html">Scala-Lightweight Modular Staging (LMS)</a> which we use for our Scala implementation. The details of our technique and the benefits on the high level of stream fusion that is achieved, are included in the POPL17 paper.</p>
+<p>Secondly, Multi-Stage Programming (MSP) is the core technique that this library follows. MSP is a meta-programming technique that allows a disciplined and safe form of run-time code generation. Staging, refers to the distinction of stages between compile- and run-time with more stages in-between. When more information about run-time values is available, staging can make a program profit in performance, by partially evaluating.</p>
 
+<p>In staged-streams, this kind of (dynamic) information consists of the structure of the pipeline, the in-between combinators and the bodies of the lambdas used.</p>
 
+<p>We prompt the user to read about MSP in the paper <a href="https://www.cs.rice.edu/~taha/publications/journal/dspg04a.pdf">A Gentle Introduction to Multi-stage Programming</a>, on <a href="http://okmij.org/ftp/ML/MetaOCaml.html">BER MetaOCaml</a> and on <a href="https://scala-lms.github.io//index.html">Scala-Lightweight Modular Staging (LMS)</a> which we use for our Scala implementation. The details of our technique and the benefits on the high level of stream fusion that is achieved, are included in the POPL17 paper.</p>
 
-        <h3 id="hello-world-in-ocaml">Hello World in OCaml!</h3>
 
-        <p>In the following example we create a simple stream from an array of six elements in OCaml using MetaOCaml’s staging annotations.</p>
 
+<h3 id="hello-world-in-ocaml">Hello World in OCaml!</h3>
 
+<p>In the following example we create a simple stream from an array of six elements in OCaml using MetaOCaml’s staging annotations.</p>
 
-        <pre class="prettyprint"><code class="language-ocaml hljs "><span class="hljs-keyword">open</span> Stream_combinators
 
-        <span class="hljs-keyword">let</span> example =
-            of_arr .&lt;[| <span class="hljs-number">0</span>;<span class="hljs-number">1</span>;<span class="hljs-number">2</span>;<span class="hljs-number">3</span> |]&gt;.
-              |&gt; filter (<span class="hljs-keyword">fun</span> x   -&gt; .&lt;.~x <span class="hljs-keyword">mod</span> <span class="hljs-number">2</span> = <span class="hljs-number">0</span>&gt;.)
-              |&gt; fold   (<span class="hljs-keyword">fun</span> z a -&gt; .&lt;.~a :: .~z&gt;.) .&lt;[]&gt;.
 
-        Runcode.run example;;</code></pre>
+<pre class="prettyprint"><code class="language-ocaml hljs "><span class="hljs-keyword">open</span> Stream_combinators
 
-        <p>When the execution reaches the <code>run</code> method, an optimized version of the stream will be compiled (emitted) and executed (for optimal results, native code compilation must be used using <code>ocamlopt</code>). The resulted code will consist of a tight, for-loop.</p>
+<span class="hljs-keyword">let</span> example =
+    of_arr .&lt;[| <span class="hljs-number">0</span>;<span class="hljs-number">1</span>;<span class="hljs-number">2</span>;<span class="hljs-number">3</span> |]&gt;.
+      |&gt; filter (<span class="hljs-keyword">fun</span> x   -&gt; .&lt;.~x <span class="hljs-keyword">mod</span> <span class="hljs-number">2</span> = <span class="hljs-number">0</span>&gt;.)
+      |&gt; fold   (<span class="hljs-keyword">fun</span> z a -&gt; .&lt;.~a :: .~z&gt;.) .&lt;[]&gt;.
 
+Runcode.run example;;</code></pre>
 
+<p>When the execution reaches the <code>run</code> method, an optimized version of the stream will be compiled (emitted) and executed (for optimal results, native code compilation must be used using <code>ocamlopt</code>). The resulted code will consist of a tight, for-loop.</p>
 
-        <h3 id="hello-world-in-scala">Hello World in Scala!</h3>
 
-        <p>With Scala LMS, the same example is demonstrated in the snippet below.</p>
 
+<h3 id="hello-world-in-scala">Hello World in Scala!</h3>
 
+<p>With Scala LMS, the same example is demonstrated in the snippet below.</p>
 
-        <pre class="prettyprint"><code class="language-scala hljs "><span class="hljs-keyword">def</span> example (xs : Rep[Array[Int]]) : Rep[Int] = Stream[Int](xs)
-              .filter(d =&gt; d % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>)
-              .fold(<span class="hljs-number">0</span>, ((a : Rep[Int]) =&gt; (b : Rep[Int]) =&gt; a + b))
 
-        <span class="hljs-keyword">val</span> example_s = compile(example)
 
-        example_s(Array(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>))</code></pre>
+<pre class="prettyprint"><code class="language-scala hljs "><span class="hljs-keyword">def</span> example (xs : Rep[Array[Int]]) : Rep[Int] = Stream[Int](xs)
+      .filter(d =&gt; d % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>)
+      .fold(<span class="hljs-number">0</span>, ((a : Rep[Int]) =&gt; (b : Rep[Int]) =&gt; a + b))
 
-        <p>For more examples see the unit directories with the unit tests for <a href="https://github.com/strymonas/staged-streams.ocaml/test/?at=master">OCaml</a> and <a href="https://github.com/strymonas/staged-streams.scala/src/test/scala/StagedStreamSpec.scala?at=master&amp;fileviewer=file-view-default">Scala</a>.</p>
+<span class="hljs-keyword">val</span> example_s = compile(example)
 
+example_s(Array(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>))</code></pre>
 
+<p>For more examples see the unit directories with the unit tests for <a href="https://github.com/strymonas/staged-streams.ocaml/test/?at=master">OCaml</a> and <a href="https://github.com/strymonas/staged-streams.scala/src/test/scala/StagedStreamSpec.scala?at=master&amp;fileviewer=file-view-default">Scala</a>.</p>
 
-        <h2 id="bugs-and-feedback">Bugs and Feedback</h2>
 
-        <p>To discuss bugs, improvements and post questions please use our Github Issues.</p>
 
+<h2 id="bugs-and-feedback">Bugs and Feedback</h2>
 
+<p>To discuss bugs, improvements and post questions please use our Github Issues.</p>
 
-        <h2 id="team">Team</h2>
 
-        <ul>
-        <li>Oleg Kiselyov, <a href="http://okmij.org/">site</a></li>
-        <li>Aggelos Biboudis, <a href="https://twitter.com/biboudis">@biboudis</a>, <a href="https://biboudis.github.io/">site</a></li>
-        <li>Nick Palladinos, <a href="https://twitter.com/nickpalladinos">@nickpalladinos</a></li>
-        <li>Yannis Smaragdakis, <a href="https://yanniss.github.io/">site</a></li>
-        </ul></div></body>
+
+<h2 id="team">Team</h2>
+
+<ul>
+<li>Oleg Kiselyov, <a href="http://okmij.org/">site</a></li>
+<li>Aggelos Biboudis, <a href="https://twitter.com/biboudis">@biboudis</a>, <a href="https://biboudis.github.io/">site</a></li>
+<li>Nick Palladinos, <a href="https://twitter.com/nickpalladinos">@nickpalladinos</a></li>
+<li>Yannis Smaragdakis, <a href="https://yanniss.github.io/">site</a></li>
+</ul></div></body>
 </html>
