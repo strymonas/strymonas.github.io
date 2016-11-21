@@ -81,9 +81,8 @@ git clone https://github.com/strymonas/java8-benchmarks
 $ opam switch <span class="hljs-number">4.02</span>.<span class="hljs-number">1</span>+BER
 $ <span class="hljs-built_in">eval</span> <span class="hljs-string">"opam config env"</span>
 $ <span class="hljs-built_in">cd</span> staging-streams.ocaml
-$ opam install oasis batteries.<span class="hljs-number">2.3</span>.<span class="hljs-number">0</span> ounit.<span class="hljs-number">2.0</span>.<span class="hljs-number">0</span> oml.<span class="hljs-number">0.0</span>.<span class="hljs-number">5</span>
-$ ./configure --enable-tests --enable-benchmarks
-$ make all</code></pre>
+$ opam pin add staged-streams http://github.com/strymonas/staged-streams.ocaml.git
+</code></pre>
 
 <p>To run the benchmarks via command line use the commands below:</p>
 
