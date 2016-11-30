@@ -170,13 +170,9 @@ Runcode.run example;;</code></pre>
 
 <p>When the execution reaches the <code>run</code> method, an optimized version of the stream will be compiled (emitted) and executed (for optimal results, native code compilation must be used using <code>ocamlopt</code>). The resulted code will consist of a tight, for-loop.</p>
 
-
-
 <h3 id="hello-world-in-scala">Hello World in Scala!</h3>
 
 <p>With Scala LMS, the same example is demonstrated in the snippet below.</p>
-
-
 
 <pre class="prettyprint"><code class="language-scala hljs "><span class="hljs-keyword">def</span> example (xs : Rep[Array[Int]]) : Rep[Int] = Stream[Int](xs)
       .filter(d =&gt; d % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>)
@@ -188,14 +184,11 @@ example_s(Array(<span class="hljs-number">0</span>, <span class="hljs-number">1<
 
 <p>For more examples see the unit directories with the unit tests for <a href="https://github.com/strymonas/staged-streams.ocaml/test/?at=master">OCaml</a> and <a href="https://github.com/strymonas/staged-streams.scala/src/test/scala/StagedStreamSpec.scala?at=master&amp;fileviewer=file-view-default">Scala</a>.</p>
 
-
-
 <h2 id="bugs-and-feedback">Bugs and Feedback</h2>
 
-<p>To discuss bugs and improvements please use our Github Issues, for discussions and recommendations our gitter pages.</p>
+<p>To discuss bugs and improvements please use our Github Issues for each corresponding flavor, for discussions and recommendations please use our gitter pages.</p>
 
 <h2 id="team">Team</h2>
-
 <ul>
 <li>Oleg Kiselyov [<a href="http://okmij.org/ftp/">site</a>]</li>
 <li>Aggelos Biboudis [<a href="https://twitter.com/biboudis">@biboudis</a>, <a href="https://biboudis.github.io/">site</a>]</li>
