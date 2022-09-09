@@ -1,204 +1,93 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stream Fusion, to Completeness</title>
-<link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
-<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
-<style>
-.container {
-    width: 60%;
-    font-family: 'Lato', sans-serif;
+<html><head><style>body {
+   color: black;
 }
-    
-.clearfix{
-    clear:both
-}
-
-</style>
-<script async defer src="https://buttons.github.io/buttons.js"></script>
-</head>
-<body>
-    
-<div class="container">
-<h2 id="stream-fusion-to-completeness" style="display:inline-block;">Strymonas Streams: stream fusion, to completeness</h2> 
-<div class="clearfix"></div>
-
-<p >
-   <img src="https://raw.githubusercontent.com/strymonas/strymonas.github.io/master/strymonas_logo.png" style="
-    /* text-align: center; */
-    display: block;
-    margin: auto;
-    width: 20%;
-"> 
-    </p>
-    
-<p><strong>strymonas</strong> is a streaming library design for <a href="https://github.com/strymonas/staged-streams.ocaml">OCaml</a> and <a href="https://github.com/strymonas/staged-streams.scala">Scala</a> that offers support for fast, bulk, in-memory processing. It is developed using the state of the art facilities of Multi-Stage Programming (MSP) for each language. The utmost goal of the library is to offer a streaming API that achieves stream fusion at the highest level without altering the compiler backend. It covers the combination of many interesting (and challenging) combinators. The OCaml flavor, depends on <a href="http://okmij.org/ftp/ML/MetaOCaml.html">BER MetaOCaml</a>, OCaml’s dialect for MSP. The Scala one depends on <a href="https://scala-lms.github.io/">scala-lms</a>.</p>
-
-<h4>News</h4>
+</style></head><body><h2 id="strymonas-streams-stream-fusion-to-completeness">Strymonas Streams: stream fusion, to completeness</h2>
+<p><strong>Strymonas</strong> is a streaming library for fast, bulk, single-thread
+in-memory processing -- of the sort epitomized by Software Defined
+Radio or Java Streams. It attains the speed and memory efficiency of
+hand-written state machines, yet provides the familiar declarative
+interface for finite and infinite streams, supporting <strong>any</strong>
+combination of map, filter, take(while), drop(while), zip, flatmap
+combinators and tupling. Experienced users may use the lower-level
+interface of stateful streams and implement accumulating maps,
+compression and windowing.</p>
+<p>The library is based on assured code generation (at present, OCaml, C
+and Scala/Java) and guarantees in all cases <strong>complete fusion</strong>: if
+each operation in a pipeline individually runs without any function
+calls and memory allocations, the entire streaming pipeline runs
+without calls and allocations. Thus strymonas per se introduces not
+even constant-size intermediary data structures. The main processing
+loop thus may run in constant memory and stack space.</p>
+<p>In essence, strymonas is a DSL that generates high-performance
+single-core stream processing code from declarative descriptions of
+stream pipelines and user actions -- something like Yacc. Unlike
+Yacc, strymonas is an embedded DSL. There are two flavors of the
+library, with the host language being OCaml and Scala 3. The C
+generation back-end needs no other dependencies, the OCaml back-end
+relies on BER MetaOCaml, and Scala backend uses Scala 3 native
+metaprogramming facilities.</p>
+<h3 id="news">News</h3>
 <ul>
-    <li><p>Talk, POPL 17,  (<a href="https://speakerdeck.com/biboudis/stream-fusion-to-completeness-1">link</a>)</p></li>
-    <li><p>Final version, ACM (<a href="http://dl.acm.org/citation.cfm?id=3009880">acm link</a>)</p></li>
-    <li><p>Paper uploaded to + Appendix, arXiv (<a href="https://arxiv.org/abs/1612.06668">link</a>)</p></li>
-    <li><p><em>Stream Fusion, to Completeness</em> (<a href="https://github.com/strymonas/strymonas.github.io/raw/master/strymonas.pdf">preprint</a>), accepted at the 44th ACM SIGPLAN Symposium on Principles of Programming Languages (<a href="http://conf.researchr.org/home/POPL-2017">POPL’17</a>) in Paris.</p></li>
+<li><p>OCaml 22 workshop
+paper <a href="https://strymonas.github.io/docs/ocaml-22.pdf">link</a></p>
+</li>
+<li><p>Complete Stream Fusion for Software-Defined Radio
+Tomoaki Kobayashi and Oleg Kiselyov
+<a href="http://arxiv.org/abs/2208.08732">http://arxiv.org/abs/2208.08732</a>
+<a href="https://doi.org/10.48550/arXiv.2208.08732">https://doi.org/10.48550/arXiv.2208.08732</a></p>
+</li>
+<li><p>Even Better Stream Fusion
+Oleg Kiselyov
+University of Oxford Department of Computer Science. Seminar on Tensor
+Computation. Feb 18, 2022.
+<a href="http://www.cs.ox.ac.uk/seminars/2447.html">http://www.cs.ox.ac.uk/seminars/2447.html</a></p>
+</li>
+<li><p>Stream Fusion, to Completeness (describes the previous version
+of the library)
+POPL 2017.
+(<a href="http://dl.acm.org/citation.cfm?id=3009880">paper with appendicies, arXiv</a>
+<a href="https://speakerdeck.com/biboudis/stream-fusion-to-completeness-1">POPL 17 talk</a>)</p>
+</li>
 </ul>
-    
-<div>
-    <p> 
-        <a href="https://github.com/strymonas/staged-streams.ocaml"><img src="https://img.shields.io/badge/github-ocaml-brightgreen.svg" alt="OCaml repository" data-canonical-src="https://github.com/strymonas/staged-streams.ocaml" style="max-width:100%;vertical-align: top;"></a>
-        <a href="https://travis-ci.org/strymonas/staged-streams.ocaml"><img src="https://camo.githubusercontent.com/6bee688555351dbfa47102192cdd565cdc96e6ee/68747470733a2f2f7472617669732d63692e6f72672f737472796d6f6e61732f7374616765642d73747265616d732e6f63616d6c2e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/strymonas/staged-streams.ocaml.svg?branch=master" style="max-width:100%;vertical-align: top;"></a>
-        <a href="https://gitter.im/strymonas/staged-streams.ocaml?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://camo.githubusercontent.com/ede74ced93ee4058c8244561347a6053a4a0ff69/68747470733a2f2f6261646765732e6769747465722e696d2f737472796d6f6e61732f7374616765642d73747265616d732e6f63616d6c2e737667" alt="Gitter" data-canonical-src="https://badges.gitter.im/strymonas/staged-streams.ocaml.svg" style="max-width:100%;vertical-align: top;"></a>
-        <a class="github-button" href="https://github.com/strymonas/staged-streams.ocaml" data-count-href="/strymonas/staged-streams.ocaml/stargazers" data-count-api="/repos/strymonas/staged-streams.ocaml#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star strymonas/staged-streams.ocaml on GitHub">Star</a>
-    </p>
-
-    <p> 
-        <a href="https://github.com/strymonas/staged-streams.scala"><img src="https://img.shields.io/badge/github-scala-brightgreen.svg" alt="Scala repository" data-canonical-src="https://github.com/strymonas/staged-streams.scala" style="max-width:100%;vertical-align: top;"></a>
-        <a href="https://travis-ci.org/strymonas/staged-streams.scala"><img src="https://camo.githubusercontent.com/25ea2e6faa4bf4a3b43c1d775f9683b1b3b97f51/68747470733a2f2f7472617669732d63692e6f72672f737472796d6f6e61732f7374616765642d73747265616d732e7363616c612e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/strymonas/staged-streams.scala.svg?branch=master" style="max-width:100%;vertical-align: top;"></a>
-        <a href="https://gitter.im/strymonas/staged-streams.scala?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://camo.githubusercontent.com/da0bf9118e3e2c8d552e07a71fdd98c9313b7ebb/68747470733a2f2f6261646765732e6769747465722e696d2f737472796d6f6e61732f7374616765642d73747265616d732e7363616c612e737667" alt="Gitter" data-canonical-src="https://badges.gitter.im/strymonas/staged-streams.scala.svg" style="max-width:100%;vertical-align: top;"></a>
-        <a class="github-button" href="https://github.com/strymonas/staged-streams.scala" data-count-href="/strymonas/staged-streams.scala/stargazers" data-count-api="/repos/strymonas/staged-streams.scala#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star strymonas/staged-streams.scala on GitHub">Star</a>
-    </p>
-</div>
-    
-<h2 id="getting-started">Getting Started</h2>
-
-<p>The project consists of three separate projects that you can clone separately: </p>
-
-<pre class="prettyprint"><code class="language-bash hljs ">git clone https://github.com/strymonas/staged-streams.ocaml
-git clone https://github.com/strymonas/staged-streams.scala
-git clone https://github.com/strymonas/java8-benchmarks
-</code></pre>
-
-<h3 id="prerequisites">Prerequisites</h3>
-
-<p>To run each one of the three benchmark and test suites, please install the following:</p>
-
+<h3 id="getting-started">Getting Started</h3>
+<pre><code>git <span class="hljs-keyword">clone</span> <span class="hljs-title">https</span>://github.com/strymonas/strymonas-ocaml
+git <span class="hljs-keyword">clone</span> <span class="hljs-title">https</span>://github.com/strymonas/strymonas-C
+</code></pre><h3 id="prerequisites">Prerequisites</h3>
 <ol>
-<li>Java 8 (JVM version of at least 1.8.0 65): from your system’s package manager</li>
-<li>Install <code>maven</code> the Apache build manager for Java projects</li>
-<li>OCaml: from your system’s package manager</li>
-<li>OPAM: after you <a href="https://opam.ocaml.org/doc/Install.html">install</a> OPAM you will need to initialize it  with <code>opam init</code> and resolve any dependencies with: <br>
-<ul><li>either the <code>opam depext</code> command</li>
-<li>or your system’s package manager (e.g., OML’s dependencies)</li></ul></li>
-<li>sbt: install following <a href="http://www.scala-sbt.org/0.13/docs/Setup.html">sbt’s documentation</a></li>
+<li>OCaml: from your system&#39;s package manager</li>
+<li>OPAM: after you install OPAM you will need to initialize it with opam init
+and resolve any dependencies with:<ul>
+<li>either the opam depext command</li>
+<li>or your system&#39;s package manager (e.g., OML&#39;s dependencies)</li>
+</ul>
+</li>
+<li>sbt: install following sbt’s documentation</li>
 </ol>
-
-
-
-<h3 id="how-to-compile-and-run-the-benchmarks">How to compile and run the benchmarks</h3>
-
-
-
-<h4 id="metaocaml">MetaOCaml</h4>
-
-<p>The following will enable MetaOCaml, install dependencies, make the project and run unit tests.</p>
-
-
-
-<pre class="prettyprint"><code class="language-bash hljs ">$ opam update
-$ opam switch <span class="hljs-number">4.02</span>.<span class="hljs-number">1</span>+BER
-$ <span class="hljs-built_in">eval</span> <span class="hljs-string">"opam config env"</span>
-$ <span class="hljs-built_in">cd</span> staging-streams.ocaml
-$ opam pin add staged-streams http://github.com/strymonas/staged-streams.ocaml.git
-</code></pre>
-
-<p>To run the benchmarks via command line use the commands below:</p>
-
-
-
-<pre class="prettyprint"><code class="language-bash hljs ">$ ./benchmark_batteries.byte
-$ ./benchmark_stream.byte</code></pre>
-
-
-
-<h4 id="lms">LMS</h4>
-
-<p>The following will fire-up the sbt console, compile and run the test suite.</p>
-
-
-
-<pre class="prettyprint"><code class="language-bash hljs ">$ <span class="hljs-built_in">cd</span> staging-streams.scala
-$ sbt
-$ test <span class="hljs-comment"># to run the property tests or</span>
-$ testOnly &lt;name of test&gt; <span class="hljs-comment"># to run the property tests (tab completion works)</span></code></pre>
-
-<p>To run the benchmarks via the sbt command line:</p>
-
-
-
-<pre class="prettyprint"><code class="language-bash hljs ">$ <span class="hljs-built_in">cd</span> staging-streams.scala
-$ sbt
-$ jmh:run -i <span class="hljs-number">10</span> -wi <span class="hljs-number">10</span> <span class="hljs-operator">-f</span>1 .* <span class="hljs-comment"># to run all benchmarks</span></code></pre>
-
-
-
-<h4 id="java-8">Java 8</h4>
-
-<p>To run the benchmarks via command line:</p>
-
-
-
-<pre class="prettyprint"><code class="language-bash hljs ">$ <span class="hljs-built_in">cd</span> java8-benchmarks
-$ mvn clean install
-$ java -Xms6g -Xmx6g -XX:-TieredCompilation -jar target/benchmarks.jar -i <span class="hljs-number">10</span> -wi <span class="hljs-number">10</span> <span class="hljs-operator">-f</span>1 .* <span class="hljs-comment"># to run all benchmarks</span></code></pre>
-
-
-
-<h2 id="hello-world">Hello World</h2>
-
-<p>Developers can use our library as any other streaming/collection library. We assume the reader is familiar with: i) streaming APIs and ii) Multi-Stage Programming.</p>
-
-<p>Firstly, the API is similar with F#’s <code>Seq</code> type, Java 8’s <code>Stream</code> API, collection APIs from OCaml and OCaml Batteries and many more. Our library supports all the core combinators for pipeline construction. Creation of streams is realized with <code>of_arr</code> (from arrays) and <code>unfold</code> (for infinite streams). We support: <code>fold</code>, <code>map</code>, <code>filter</code>, <code>take</code>, <code>flat_map</code> and <code>zip_with</code>.</p>
-
-<p>Secondly, Multi-Stage Programming (MSP) is the core technique that this library follows. MSP is a meta-programming technique that allows a disciplined and safe form of run-time code generation. Staging, refers to the distinction of stages between compile- and run-time with more stages in-between. When more information about run-time values is available, staging can make a program profit in performance, by partially evaluating.</p>
-
-<p>In staged-streams, this kind of (dynamic) information consists of the structure of the pipeline, the in-between combinators and the bodies of the lambdas used.</p>
-
-<p>We prompt the user to read about MSP in the paper <a href="https://www.cs.rice.edu/~taha/publications/journal/dspg04a.pdf">A Gentle Introduction to Multi-stage Programming</a>, on <a href="http://okmij.org/ftp/ML/MetaOCaml.html">BER MetaOCaml</a> and on <a href="https://scala-lms.github.io//index.html">Scala-Lightweight Modular Staging (LMS)</a> which we use for our Scala implementation. The details of our technique and the benefits on the high level of stream fusion that is achieved, are included in the POPL17 paper.</p>
-
-
-
-<h3 id="hello-world-in-ocaml">Hello World in OCaml!</h3>
-
-<p>In the following example we create a simple stream from an array of six elements in OCaml using MetaOCaml’s staging annotations.</p>
-
-
-
-<pre class="prettyprint"><code class="language-ocaml hljs "><span class="hljs-keyword">open</span> Stream_combinators
-
-<span class="hljs-keyword">let</span> example =
-    of_arr .&lt;[| <span class="hljs-number">0</span>;<span class="hljs-number">1</span>;<span class="hljs-number">2</span>;<span class="hljs-number">3</span> |]&gt;.
-      |&gt; filter (<span class="hljs-keyword">fun</span> x   -&gt; .&lt;.~x <span class="hljs-keyword">mod</span> <span class="hljs-number">2</span> = <span class="hljs-number">0</span>&gt;.)
-      |&gt; fold   (<span class="hljs-keyword">fun</span> z a -&gt; .&lt;.~a :: .~z&gt;.) .&lt;[]&gt;.
-
-Runcode.run example;;</code></pre>
-
-<p>When the execution reaches the <code>run</code> method, an optimized version of the stream will be compiled (emitted) and executed (for optimal results, native code compilation must be used using <code>ocamlopt</code>). The resulted code will consist of a tight, for-loop.</p>
-
-<h3 id="hello-world-in-scala">Hello World in Scala!</h3>
-
-<p>With Scala LMS, the same example is demonstrated in the snippet below.</p>
-
-<pre class="prettyprint"><code class="language-scala hljs "><span class="hljs-keyword">def</span> example (xs : Rep[Array[Int]]) : Rep[Int] = Stream[Int](xs)
-      .filter(d =&gt; d % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>)
-      .fold(<span class="hljs-number">0</span>, ((a : Rep[Int]) =&gt; (b : Rep[Int]) =&gt; a + b))
-
-<span class="hljs-keyword">val</span> example_s = compile(example)
-
-example_s(Array(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>))</code></pre>
-
-<p>For more examples see the unit directories with the unit tests for <a href="https://github.com/strymonas/staged-streams.ocaml/test/?at=master">OCaml</a> and <a href="https://github.com/strymonas/staged-streams.scala/src/test/scala/StagedStreamSpec.scala?at=master&amp;fileviewer=file-view-default">Scala</a>.</p>
-
-<h2 id="bugs-and-feedback">Bugs and Feedback</h2>
-
-<p>To discuss bugs and improvements please use our Github Issues for each corresponding flavor, for discussions and recommendations please use our gitter pages.</p>
-
-<h2 id="team">Team</h2>
+<h3 id="getting-started">Getting started</h3>
+<p>How to compile and run the benchmarks:</p>
 <ul>
-<li>Oleg Kiselyov [<a href="http://okmij.org/ftp/">site</a>]</li>
-<li>Aggelos Biboudis [<a href="https://twitter.com/biboudis">@biboudis</a>, <a href="https://biboudis.github.io/">site</a>]</li>
-<li>Nick Palladinos [<a href="https://twitter.com/nickpalladinos">@nickpalladinos</a>]</li>
-<li>Yannis Smaragdakis [<a href="https://yanniss.github.io/">site</a>]</li>
-</ul></div></body>
-</html>
+<li><p>For OCaml: see</p>
+<p><code>ocaml/benchmarks/README.md</code></p>
+<p>Benchmarks require MetaOCaml</p>
+</li>
+<li><p>For C:</p>
+<p><code>C/bench/README.md</code></p>
+<p>(to generate the C code for the benchmark, see the end of <code>ocaml/benchmarks/README.md</code>)</p>
+</li>
+</ul>
+<h3 id="bugs-and-feedback">Bugs and Feedback</h3>
+<p>To discuss bugs and improvements please use our Github Issues for each
+corresponding flavor, for discussions and recommendations please use our gitter
+pages.</p>
+<h3 id="team">Team</h3>
+<ul>
+<li>Oleg Kiselyov</li>
+<li>Tomoaki Kobayashi</li>
+<li>Aggelos Biboudis</li>
+<li>Nick Palladinos</li>
+<li>Yannis Smaragdakis</li>
+</ul>
+<h3 id="old-design-popl17-">Old Design (POPL17)</h3>
+<p>You can find and experiment with the implementations of the old design please follow the guidelines here:</p>
+<p><a href="https://github.com/strymonas/strymonas.github.io/blob/master/index-old.md">https://github.com/strymonas/strymonas.github.io/blob/master/index-old.md</a></p>
+</body></html>
