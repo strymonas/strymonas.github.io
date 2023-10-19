@@ -28,6 +28,10 @@ relies on BER MetaOCaml, and Scala backend uses Scala 3 native
 metaprogramming facilities.</p>
 <h3 id="news">News</h3>
 <ul>
+  <li><p>Published a part of version 2.1 and SDR examples (October 2023):
+      <a href="https://github.com/strymonas/strymonas-ocaml">link</a>
+      containing the documentations for the each example</p>
+</li>
 <li><p>Version 2.1 (September 2023): greatly expanded back-end (with C99
 code-generation, more numeric data types, including complex numbers,
 and operations on them), static arrays, more general FFI, and
@@ -55,9 +59,13 @@ POPL 2017.
 </li>
 </ul>
 <h3 id="getting-started">Getting Started</h3>
-<pre><code>git <span class="hljs-keyword">clone</span> <span class="hljs-title">https</span>://github.com/strymonas/strymonas-ocaml
-git <span class="hljs-keyword">clone</span> <span class="hljs-title">https</span>://github.com/strymonas/strymonas-C
-</code></pre><h3 id="prerequisites">Prerequisites</h3>
+<pre><code>
+git <span class="hljs-keyword">clone</span> <a href="https://github.com/strymonas/strymonas-ocaml"><span class="hljs-title">https</span>://github.com/strymonas/strymonas-ocaml</a>
+git <span class="hljs-keyword">clone</span> <a href="https://github.com/strymonas/strymonas-C"><span class="hljs-title">https</span>://github.com/strymonas/strymonas-C</a>
+git <span class="hljs-keyword">clone</span> <a href="https://github.com/strymonas/strymonas-scala"><span class="hljs-title">https</span>://github.com/strymonas/strymonas-scala</a>
+</code></pre>
+<p>(For the latest manuals, please visit the each repository.)</p>
+<h3 id="prerequisites">Prerequisites</h3>
 <ol>
 <li>OCaml: from your system&#39;s package manager</li>
 <li>OPAM: after you install OPAM you will need to initialize it with opam init
@@ -66,18 +74,17 @@ and resolve any dependencies with:<ul>
 <li>or your system&#39;s package manager (e.g., OML&#39;s dependencies)</li>
 </ul>
 </li>
-<li>sbt: install following sbt’s documentation</li>
 </ol>
-<h3 id="getting-started">Getting started</h3>
+<h3 id="benchmarks">Benchmarks</h3>
 <p>How to compile and run the benchmarks:</p>
 <ul>
 <li><p>For OCaml: see</p>
-<p><code>ocaml/benchmarks/README.md</code></p>
+<p><code>strymonas-ocaml/benchmarks/README.md</code></p>
 <p>Benchmarks require MetaOCaml</p>
 </li>
-<li><p>For C:</p>
-<p><code>C/bench/README.md</code></p>
-<p>(to generate the C code for the benchmark, see the end of <code>ocaml/benchmarks/README.md</code>)</p>
+<li><p>For C: see</p>
+<p><code>strymonas-C/bench/README.md</code></p>
+<p>(to generate the C code for the benchmark, see the end of <code>strymonas-ocaml/benchmarks/README.md</code>)</p>
 </li>
 </ul>
 <h3 id="bugs-and-feedback">Bugs and Feedback</h3>
