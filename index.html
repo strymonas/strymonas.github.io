@@ -1,7 +1,10 @@
 <html><head><style>body {
    color: black;
 }
-</style></head><body><h2 id="strymonas-streams-stream-fusion-to-completeness">Strymonas Streams: stream fusion, to completeness</h2>
+</style></head>
+<body>
+<h2 id="strymonas-streams-stream-fusion-to-completeness">Strymonas Streams: stream fusion, to completeness</h2>
+<img src="./strymonas_logo.png" alt="strymonas logo" width="100" />
 <p><strong>Strymonas</strong> is a streaming library for fast, bulk, single-thread
 in-memory processing -- of the sort epitomized by Software Defined
 Radio or Java Streams. It attains the speed and memory efficiency of
@@ -66,26 +69,33 @@ git <span class="hljs-keyword">clone</span> <a href="https://github.com/strymona
 </code></pre>
 <p>(For the latest manuals, please visit the each repository.)</p>
 <h3 id="prerequisites">Prerequisites</h3>
-<ol>
-<li>OCaml: from your system&#39;s package manager</li>
-<li>OPAM: after you install OPAM you will need to initialize it with opam init
-and resolve any dependencies with:<ul>
-<li>either the opam depext command</li>
-<li>or your system&#39;s package manager (e.g., OML&#39;s dependencies)</li>
+<ul>
+  <li>For strymonas-ocaml and strymonas-C:
+    <ol>
+      <li>OCaml: from your system&#39;s package manager</li>
+      <li>OPAM: after you install OPAM you will need to initialize it with opam init
+	and resolve any dependencies with:
+	<ul>
+	  <li>either the opam depext command</li>
+	  <li>or your system&#39;s package manager (e.g., OML&#39;s dependencies)</li>
+	</ul>
+      </li>
+    </ol>
+  </li>
+  <li>For Scala: (work in progress...)</li>
 </ul>
-</li>
-</ol>
 <h3 id="benchmarks">Benchmarks</h3>
 <p>How to compile and run the benchmarks:</p>
 <ul>
-<li><p>For OCaml: see</p>
+<li><p>For strymonas-ocaml: see</p>
 <p><code>strymonas-ocaml/benchmarks/README.md</code></p>
 <p>Benchmarks require MetaOCaml</p>
 </li>
-<li><p>For C: see</p>
+<li><p>For strymonas-C: see</p>
 <p><code>strymonas-C/bench/README.md</code></p>
 <p>(to generate the C code for the benchmark, see the end of <code>strymonas-ocaml/benchmarks/README.md</code>)</p>
 </li>
+<li><p>For strymonas-scala: (work in progress...)</p></li>
 </ul>
 <h3 id="bugs-and-feedback">Bugs and Feedback</h3>
 <p>To discuss bugs and improvements please use our Github Issues for each
